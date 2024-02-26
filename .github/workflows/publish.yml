@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Change package scope
         run: |
-          sed -i -E "s/@.+(\/eleventy-plugin-template)/@${{ github.repository_owner }}\1/" package.json
+          sed -i -E "s/@.+(\/eleventy-plugin-liquid)/@${{ github.repository_owner }}\1/" package.json
           cat package.json
       - uses: actions/setup-node@v4
         with:
