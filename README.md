@@ -52,7 +52,7 @@ module.exports = function(eleventyConfig) {
 ```
 
 > [!TIP]
-> As shown above, a common configuration option you may want to set is `globals.dates`. The keys in this object may be used to format dates in Liquid templates. For example, `{{ page.date | date: dates.time }}`. See [the LiquidJS `date` filter documentation](https://liquidjs.com/filters/date.html) for more.
+> As shown above, a common configuration option you may want to set is arbitrary data (like `dates`) in [the `globals` object](https://liquidjs.com/tutorials/options.html#globals). The keys in the `dates` object may be used to format dates and times in Liquid templates. For example, `{{ page.date | date: dates.time }}`. See [the LiquidJS `date` filter documentation](https://liquidjs.com/filters/date.html) for more.
 
 ## ESM Support
 
