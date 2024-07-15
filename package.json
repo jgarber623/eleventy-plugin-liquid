@@ -23,7 +23,6 @@
     "lint": "eslint .",
     "test": "NODE_V8_COVERAGE=coverage node --experimental-test-coverage --test"
   },
-  "dependencies": {},
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@jgarber/eslint-config": "^6.1.0"
