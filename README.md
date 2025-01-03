@@ -17,10 +17,10 @@ npm install --save-dev @jgarber/eleventy-plugin-liquid
 Next, add the plugin to your project's [Eleventy configuration file](https://www.11ty.dev/docs/config#default-filenames) (e.g. `eleventy.config.js`):
 
 ```js
-import liquidPlugin from "@jgarber/eleventy-plugin-liquid";
+import eleventyPluginLiquid from "@jgarber/eleventy-plugin-liquid";
 
 export default async function(eleventyConfig) {
-  eleventyConfig.addPlugin(liquidPlugin);
+  eleventyConfig.addPlugin(eleventyPluginLiquid);
 }
 ```
 
@@ -42,8 +42,10 @@ From v2.0.0, this package exports these options as `defaultLiquidOptions`.
 See [LiquidJS' Options documentation](https://liquidjs.com/tutorials/options.html) for a full, up-to-date list of configuration options. [Eleventy's LiquidJS template language documentation](https://www.11ty.dev/docs/languages/liquid/) also has several important notes regarding Eleventy's default configuration.
 
 ```js
+import eleventyPluginLiquid from "@jgarber/eleventy-plugin-liquid";
+
 export default function(eleventyConfig) {
-  eleventyConfig.addPlugin(require("@jgarber/eleventy-plugin-liquid"), {
+  eleventyConfig.addPlugin(eleventyPluginLiquid, {
     globals: {
       dates: {
         display: "%A, %B %e<sup>%q</sup>, %Y",
