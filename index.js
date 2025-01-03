@@ -1,18 +1,14 @@
-const pkg = require("./package.json");
+import pkg from "./package.json" with { type: "json" };
 
-module.exports = function(eleventyConfig, options = {}) {
-  try {
-    eleventyConfig.versionCheck(pkg["11ty"].compatibility);
-  } catch (error) {
-    console.log(`WARN: Eleventy Plugin (${pkg.name}) Compatibility: ${error.message}`);
-  }
-
-  eleventyConfig.setLiquidOptions(
-    Object.assign({
-      dateFormat: "%Y-%m-%dT%H:%M:%S.%L%:z",
-      jsTruthy: true,
-      orderedFilterParameters: true,
-      timezoneOffset: 0,
-    }, options),
-  );
+export const defaultLiquidOptions = {
+  dateFormat: "%Y-%m-%dT%H:%M:%S.%L%:z",
+  jsTruthy: true,
+  orderedFilterParameters: true,
+  timezoneOffset: 0,
 };
+
+export default function eleventyPluginLiquid(eleventyConfig, options = {}) {
+  eleventyConfig.versionCheck(pkg["11ty"].compatibility);
+
+  eleventyConfig.setLiquidOptions(Object.assign(defaultLiquidOptions, options));
+}

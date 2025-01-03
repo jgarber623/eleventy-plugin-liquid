@@ -1,5 +1,7 @@
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addPlugin(require("../../../"), {
+import eleventyPluginLiquid from "@jgarber/eleventy-plugin-liquid";
+
+export default function(eleventyConfig) {
+  eleventyConfig.addPlugin(eleventyPluginLiquid, {
     globals: {
       dates: {
         display_with_weekday: "%A, %B %e<sup>%q</sup>, %Y",
@@ -7,4 +9,4 @@ module.exports = function(eleventyConfig) {
       },
     },
   });
-};
+}

@@ -17,9 +17,11 @@ npm install --save-dev @jgarber/eleventy-plugin-liquid
 Next, add the plugin to your project's [Eleventy configuration file](https://www.11ty.dev/docs/config#default-filenames) (e.g. `eleventy.config.js`):
 
 ```js
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addPlugin(require("@jgarber/eleventy-plugin-liquid"));
-};
+import liquidPlugin from "@jgarber/eleventy-plugin-liquid";
+
+export default async function(eleventyConfig) {
+  eleventyConfig.addPlugin(liquidPlugin);
+}
 ```
 
 With no additional configuration, eleventy-plugin-liquid will configure the LiquidJS template language using the options listed below.
@@ -35,10 +37,12 @@ eleventy-plugin-liquid sets the following configuration options:
 | `orderedFilterParameters` | `true`                      |
 | `timezoneOffset`          | `0`                         |
 
+From v2.0.0, this package exports these options as `defaultLiquidOptions`.
+
 See [LiquidJS' Options documentation](https://liquidjs.com/tutorials/options.html) for a full, up-to-date list of configuration options. [Eleventy's LiquidJS template language documentation](https://www.11ty.dev/docs/languages/liquid/) also has several important notes regarding Eleventy's default configuration.
 
 ```js
-module.exports = function(eleventyConfig) {
+export default function(eleventyConfig) {
   eleventyConfig.addPlugin(require("@jgarber/eleventy-plugin-liquid"), {
     globals: {
       dates: {
@@ -53,18 +57,6 @@ module.exports = function(eleventyConfig) {
 
 > [!TIP]
 > As shown above, a common configuration option you may want to set is arbitrary data (like `dates`) in [the `globals` object](https://liquidjs.com/tutorials/options.html#globals). The keys in the `dates` object may be used to format dates and times in Liquid templates. For example, `{{ page.date | date: dates.time }}`. See [the LiquidJS `date` filter documentation](https://liquidjs.com/filters/date.html) for more.
-
-## ESM Support
-
-Eleventy v3.0.0 [added bundler-free ESM support](https://www.11ty.dev/blog/canary-eleventy-v3). This plugin works with either ESM or CommonJS projects!
-
-```js
-import liquidPlugin from "@jgarber/eleventy-plugin-liquid";
-
-export default async function(eleventyConfig) {
-  eleventyConfig.addPlugin(liquidPlugin);
-}
-```
 
 ## Acknowledgments
 

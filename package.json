@@ -1,6 +1,6 @@
 {
   "name": "@jgarber/eleventy-plugin-liquid",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An Eleventy plugin for configuring the LiquidJS template language.",
   "keywords": [
     "eleventy",
@@ -11,6 +11,7 @@
   "bugs": "https://github.com/jgarber623/eleventy-plugin-liquid/issues",
   "license": "MIT",
   "author": "Jason Garber <jason@sixtwothree.org> (https://sixtwothree.org)",
+  "type": "module",
   "files": [
     "index.js"
   ],
@@ -18,22 +19,23 @@
     "./package.json": "./package.json",
     ".": "./index.js"
   },
-  "repository": "github:jgarber623/eleventy-plugin-liquid",
+  "repository": "https://github.com/jgarber623/eleventy-plugin-liquid",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "npx eslint .",
     "test": "NODE_V8_COVERAGE=coverage node --experimental-test-coverage --test"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@jgarber/eslint-config": "^6.1.0"
+    "@11ty/eleventy": "^3.0.0",
+    "@jgarber/eslint-config": "^7.0.0"
   },
   "engines": {
-    "node": ">=18.7"
+    "node": ">=18.20 || >=20.10"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "11ty": {
-    "compatibility": ">=2.0.0"
+    "compatibility": ">=3.0.0"
   }
 }
